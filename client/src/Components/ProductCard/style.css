@@ -1,0 +1,41 @@
+.card {
+  background: #fff;
+  border-radius: 2px;
+  height: 325px;
+  margin: 1rem;
+  position: relative;
+  width: 325px;
+  box-shadow: 0 3px 6px #FAE2AF, 0 3px 6px #FAE2AF;
+  text-align: left;
+}
+
+
+.card > .content {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  font-size: 18px;
+}
+
+.card > .content > ul {
+  list-style-type: none;
+}
+
+.card > .content > ul > li {
+  margin-top: 18px;
+}
+
+.card > .remove {
+  color: rgb(191, 124, 72);
+  font-size: 35px;
+  position: absolute;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  top: -10px;
+  right: 8px;
+  cursor: pointer;
+}
+
+.card > .remove:hover {
+  color: #ce9767;
+}
+

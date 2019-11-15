@@ -1,19 +1,43 @@
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import ProductCard from "./components/EmployeeCard";
+import Wrapper from "./components/Wrapper";
+import Jumbotron from "./components/Jumbotron";
+import FilterBar from "./components/FilterBar";
+import products from "./products.json";
 
 class App extends Component {
+  // Setting this.state.friends to the friends json array
+  state = {
+    products
+  };
+
+  removeProduct = id => {
+    // Filter this.state.friends for friends with an id not equal to the id being removed
+    const products = this.state.products.filter(product => product.id !== id);
+    // Set this.state.friends equal to the new friends array
+    this.setState({ products });
+  };
+
+  // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div class="app">
+      <Jumbotron/>
+      <FilterBar/>
+      <Wrapper>
+
+        {this.state.products.map(product => (
+          <ProductCard
+            removeProduct={this.removeProduct}
+            key={product.id}
+            image={product.image_link}
+            brand={product.brand}
+            name={product.name}
+            price={product.price}
+            productLink={product.product_link}
+          />
+        ))}
+      </Wrapper>
       </div>
     );
   }
